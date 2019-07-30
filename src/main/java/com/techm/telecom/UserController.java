@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.techm.telecom.service.UserService;
+import com.techm.telecom.model.Authenticate;
 import com.techm.telecom.model.User;
 import com.techm.telecom.model.account.MyAccount;
 
@@ -24,7 +25,7 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
-	@GetMapping("/all")
+	@GetMapping(value = "/all", produces = "application/json; charset=UTF-8")
 	public ResponseEntity<List<User>> getUserDetails() {
 		return new ResponseEntity<List<User>>(userService.getUserDetails(), HttpStatus.OK);
 	}
@@ -32,6 +33,11 @@ public class UserController {
 	@GetMapping("/single/{id}")
 	public ResponseEntity<User> getUserByUserId(@PathVariable String id) {
 		return new ResponseEntity<User>(userService.getUserByUserId(Long.parseLong(id)), HttpStatus.OK);
+	}
+
+	@PostMapping("/authenticate")
+	public ResponseEntity<List<MyAccount>> getAuthentication(@RequestBody Authenticate authenticate) {
+		return new ResponseEntity<List<MyAccount>>(userService.getAuthication(authenticate), HttpStatus.OK);
 	}
 
 	@PostMapping("/save/all")
@@ -48,10 +54,10 @@ public class UserController {
 	public ResponseEntity<List<MyAccount>> getMyAccountByMyPhone(@PathVariable String myPhone) {
 		return new ResponseEntity<List<MyAccount>>(userService.getMyAccountByMyPhone(myPhone), HttpStatus.OK);
 	}
-	
+
 	@PutMapping("update/account/{accountId}/plan/{planId}")
 	public ResponseEntity<MyAccount> UpdateMyAccountToNewPlan(@PathVariable long accountId, @PathVariable long planId) {
-		System.out.println("usercontroller: "+accountId+" : "+planId);
+		System.out.println("usercontroller: " + accountId + " : " + planId);
 		return new ResponseEntity<MyAccount>(userService.UpdateMyAccountToNewPlan(accountId, planId), HttpStatus.OK);
 	}
 }

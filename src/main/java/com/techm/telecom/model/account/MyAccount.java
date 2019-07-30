@@ -4,6 +4,7 @@ public class MyAccount {
 
 	private long id;
 	private String myPhone;
+	private String userName;
 	private MyUsage myUsage;
 	private MyBill myBill;
 	private MyPlan myPlan;
@@ -58,6 +59,14 @@ public class MyAccount {
 
 	public void setMyPlan(MyPlan myPlan) {
 		this.myPlan = myPlan;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	@Override

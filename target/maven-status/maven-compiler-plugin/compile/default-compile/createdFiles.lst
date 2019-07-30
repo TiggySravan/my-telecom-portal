@@ -1,0 +1,14 @@
+com\techm\telecom\MyTelecomPortalApplication.class
+com\techm\telecom\model\account\MyUsage.class
+com\techm\telecom\model\Authenticate.class
+com\techm\telecom\model\Address.class
+com\techm\telecom\service\UserService.class
+com\techm\telecom\model\account\MyPlan.class
+com\techm\telecom\repository\UserRepository.class
+com\techm\telecom\SwaggerConfig.class
+com\techm\telecom\model\account\Plan.class
+com\techm\telecom\model\account\MyBill.class
+com\techm\telecom\model\account\MyAccount.class
+com\techm\telecom\RestTemplateConfig.class
+com\techm\telecom\model\User.class
+com\techm\telecom\UserController.class
